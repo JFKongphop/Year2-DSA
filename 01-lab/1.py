@@ -1,6 +1,7 @@
-import random
-
 def is_multiple(n, m) -> bool:
-  return n == m * random.randint(1, n)
+  return n % m == 0 
+
+print(is_multiple(10, -2))
+
 
 

@@ -10,7 +10,6 @@ for i in range(length):
     max = nums[i]
 print(f"({min}, {max})")
 
-
 def minmax(nums: list) -> tuple:
   data = sorted(nums)
   min = data[0]
@@ -19,3 +18,4 @@ def minmax(nums: list) -> tuple:
 
 print(minmax(nums))
 
+print("FTarlusee"[10%2::2])
