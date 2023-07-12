@@ -13,16 +13,17 @@ def linear_search2(lst:list, x:int):
 
 
 ns1 = np.linspace(10, 10000, 100, dtype=int)
+print(ns1)
+print()
 ts1 = []
 for n in ns1:
     lst = list(range(n))
     start = time.time()
-    linear_search2(lst, 3)
+    linear_search2(lst, -1)
     end = time.time()
     ts1.append(end - start)
 
-plt.plot(ns1, ts1, 'or')
-plt.show()
+plt.plot(ns1, ts1, 'ob')
 
 ns2 = np.linspace(1000, 10000, 100, dtype=int)
 ts2 = []
