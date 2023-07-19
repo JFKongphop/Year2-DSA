@@ -8,9 +8,6 @@ class ArrayList:
     self.size = 0
 
 
-
-
-
 class ArrayList:
   def __init__(self):
       self.data = np.empty(1, dtype=object)
@@ -76,26 +73,27 @@ class ArrayList:
   
 
 ns = np.linspace(10, 10000, 50, dtype=int)
-for x in range(10):
-  ts1 = []
-  for i in ns:
-    l1 = ArrayList()
-    st_time = time.time()
+t2 = []
+ts1 = []
+
+for i in ns:
+  l1 = ArrayList()
+  l2 = ArrayList()
+
+  st_time1 = time.time()
+  for _ in range(10):
     for a in range(i):
-      l1.append(x, doubling=False)
-    end_time = time.time()
-    run_time = end_time-st_time
-    ts1.append(run_time)
-  t2 = []
-  for i in ns:
-    l2 = ArrayList()
-    st_time = time.time()
-    for a in range(i):
-      l2.append(x, doubling=True)
-    end_time = time.time()
-    run_time = end_time-st_time
-    t2.append(run_time)
-  plt.plot(ns,t2,"or")
-  plt.plot(ns,ts1,"ob")
+      l1.append(a, doubling=False)
+  end_time1 = time.time()
+  ts1.append(end_time1 - st_time1)
+  
+  st_time2 = time.time()
+  for _ in range(10):
+    for b in range(i):
+      l2.append(a, doubling=True)
+  end_time2 = time.time()
+  t2.append(end_time2 - st_time2)
+plt.plot(ns,t2,"or")
+plt.plot(ns,ts1,"ob")
 plt.show()
 
