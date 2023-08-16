@@ -56,12 +56,12 @@ class SinglyLinkedList(SinglyLinkedListBase):
       return
     
     current = self._head
-    while current._next is not node_name:
-      print(current._next == 'Tony')
-      current = current._next
-    # while current._next is not None and current._next != node_name:
-    #   print(f'{current._name} === {node_name}', current._name == node_name)
+    # while current._next is not node_name:
+    #   print(current._next == 'Tony')
     #   current = current._next
+    while current._next is not None and current._name != node_name:
+      # print(f'{current._name} === {node_name}', current._name == node_name)
+      current = current._next
     
     if current._next is None:
       print(f'Node with data {node_name} not found')
