@@ -12,73 +12,85 @@ class DataNode:
     return self._name
 
 class SinglyLinkedList(SinglyLinkedListBase):
-  def traverse(self):
-    current = self._head
-    if self._head is None:
-      print("This is an empty list.")
-    else:
-      while current._next is not None:
-        print(current._name, end=' -> ')
-        current = current._next
-      print(current._name)
-    pass
-
-  def insertFront(self, data):
-    pNew = DataNode(data, None)
-    if self._head is None:
-      self._head = pNew
-    else:
-      pNew._next = self._head
-      self._head = pNew
-    self._count += 1
-
-  def insertLast(self, data):
-    pNew = DataNode(data, None)
-    if self._head is None:
-      self._head = pNew
-    else:
+    def traverse(self):
       current = self._head
-      while current._next is not None:
+      if self._head is None:
+        print("This is an empty list.")
+      else:
+        while current._next is not None:
+          print(current._name, end=' -> ')
+          current = current._next
+        print(current._name)
+      pass
+
+    def insertFront(self, data):
+      pNew = DataNode(data, None)
+      if self._head is None:
+        self._head = pNew
+      else:
+        pNew._next = self._head
+        self._head = pNew
+      self._count += 1
+
+    def insertLast(self, data):
+      pNew = DataNode(data, None)
+      if self._head is None:
+        self._head = pNew
+      else:
+        current = self._head
+        while current._next is not None:
+            current = current._next
+        current._next = pNew
+      self._count += 1
+
+    def insertBefore(self, node_name, data):
+      pNew = DataNode(data, None)
+      if self._head is None:
+        print('This is empty linked list')
+        return
+
+      if self._head is node_name:
+        pNew._next = self._head
+        self._head = pNew
+        self._count += 1
+        return
+
+      current = self._head
+      while current._next is not None and current._next._name != node_name:
         current = current._next
-      current._next = pNew
-    self._count += 1
 
-  def insertBefore(self, node_name, data):
-    pNew = DataNode(data, None)
-    if self._head is None:
-      print('This is empty linked list')
-      return
-    
-    if self._head is node_name:
-      pNew._next = self._head
-      self._head = pNew
-      self._count += 1
-      return
-    
-    current = self._head
-    # while current._next is not node_name:
-    #   print(current._next == 'Tony')
-    #   current = current._next
-    while current._next is not None and current._name != node_name:
-      # print(f'{current._name} === {node_name}', current._name == node_name)
-      current = current._next
-    
-    if current._next is None:
-      print(f'Node with data {node_name} not found')
-    else:
-      pNew._next = current._next
-      current._next = pNew
-      self._count += 1
+      if current._next is None:
+        print(f'Node with data {node_name} not found')
+      else:
+        pNew._next = current._next
+        current._next = pNew
+        self._count += 1
 
-  def delete(self, data):
-    ########################
-    ## Add your code here
-    ########################
-    pass
-  
-  def getSize(self):
-    # eg., list1.getSize()
-    return self._count   
+
+    def delete(self, data_):
+      if self._head is None:
+        print("This is an empty list.")
+        return
+
+      if self._head._name == data_:
+        self._head = self._head._next
+        self._count -= 1
+        return
+
+      current = self._head
+      while current._next is not None and current._next._name != data_:
+        current = current._next
+
+      if current._next is None:
+        print(f"Node with data '{data_}' not found.")
+      else:
+        current._next = current._next._next
+        self._count -= 1
+
+
+
+    def getSize(self):
+      return self._count
   
 list1 = SinglyLinkedList()
 list1.traverse()
@@ -120,4 +132,10 @@ list1.insertLast("Max")
 list1.traverse()
 
 list1.insertBefore("Tony", "Andy")
+list1.traverse()
+
+# list1.insertBefore("Max", "Boyz")
+# list1.traverse()
+
+list1.delete("Kim")
 list1.traverse()
