@@ -49,7 +49,7 @@ class SinglyLinkedList(SinglyLinkedListBase):
         print('This is empty linked list')
         return
 
-      if self._head is node_name:
+      if str(self._head) is node_name:
         pNew._next = self._head
         self._head = pNew
         self._count += 1
@@ -134,8 +134,14 @@ list1.traverse()
 list1.insertBefore("Tony", "Andy")
 list1.traverse()
 
-# list1.insertBefore("Max", "Boyz")
-# list1.traverse()
+list1.insertBefore("Kimmy", "Mike")
+list1.traverse()
+
+list1.insertBefore("Kim", "Boyz")
+list1.traverse()
 
 list1.delete("Kim")
+list1.traverse()
+
+list1.delete("Boyz")
 list1.traverse()
