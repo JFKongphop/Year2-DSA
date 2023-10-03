@@ -1,3 +1,4 @@
-./hypothesis
+.hypothesis
 k.py
 *.ipynb
+.DS_Store
