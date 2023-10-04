@@ -26,9 +26,9 @@ def bubbleSort(alist):
 
 
 
-# inputList = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-# bubbleSort(inputList)
-# print(inputList)
+inputList = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+bubbleSort(inputList)
+print(inputList)
 
 
 def selectionSort(alist):
@@ -50,8 +50,8 @@ def selectionSort(alist):
     no_exchange += 1
 
     print(f"Round {i + 1}:")
-    print(f"  - Position to insert: {i}")
-    print(f"  - Position of selected item: {min_index}")
+    # print(f"  - Position to insert: {i}")
+    # print(f"  - Position of selected item: {min_index}")
     print(f"  - Current list: {alist}\n")
 
   print("Number of Comparisons: ", no_compare)
@@ -73,28 +73,29 @@ def insertionSort(alist):
     position = i
 
     # Find the correct position for the current value in the sorted part
-    while position > 0 and alist[position - 1] > current_value:
+    while (position > 0) and (alist[position - 1] > current_value):
       no_compare += 1
       alist[position] = alist[position - 1]
       position -= 1
       no_exchange += 1
 
     # Insert the current value into the sorted part
+    print(current_value)
     alist[position] = current_value
 
     # Print round number, positions, and current list
     print(f"Round {i}:")
-    print(f"  - Current selected/drew value: {current_value}")
-    print(f"  - Position of current selected/drew value in unsorted area: {i}")
-    print(f"  - Position of inserted item into sorted area: {position}")
+    # print(f"  - Current selected/drew value: {current_value}")
+    # print(f"  - Position of current selected/drew value in unsorted area: {i}")
+    # print(f"  - Position of inserted item into sorted area: {position}")
     print(f"  - Current list: {alist}")
 
   print("Number of Comparisons: ", no_compare)
   print("Number of Exchanges: ", no_exchange)
 
-inputList = [54,26,93,17,77,31,44,55,20]
-insertionSort(inputList)
-print(inputList)
+# inputList = [54,26,93,17,77,31,44,55,20]
+# insertionSort(inputList)
+# print(inputList)
 
 # bubble sort
 # https://youtu.be/xli_FI7CuzA?si=G9k5pZ446J9nU4Sq
